@@ -1,0 +1,249 @@
+<!DOCTYPE doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="Research Results" name="description"/>
+        <title>
+            Input-Dependent Uncorrelated Weighting for Monte Carlo Denoising
+        </title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css"/>
+        <link href="utils/report.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="content" id="content">
+            <h1 class="title">
+                Input-Dependent Uncorrelated Weighting for Monte Carlo Denoising
+            </h1>
+            <p class="authors">
+                <a href="https://cglab.gist.ac.kr/people/">Jonghee Back</a><sup>1</sup>, <a href="https://sonhua.github.io/">Binh-Son Hua</a><sup>2</sup>, <a href="https://cs.uwaterloo.ca/~thachisu/">Toshiya Hachisuka</a><sup>3</sup>, and <a href="https://cglab.gist.ac.kr/people/bochang.html">Bochang Moon</a><sup>1</sup>
+            </p>
+			<p class="authors">
+                <sup>1</sup> GIST, South Korea,
+				<sup>2</sup> Trinity College Dublin, Ireland,
+				<sup>3</sup> University of Waterloo, Canada
+            </p>
+            <h2>
+                Overview
+            </h2>
+			<p>
+			    In this interactive viewer, we have compared our kernel with input-independent kernels 
+                (a uniform kernel and a cross-weighting) and input-dependent kernel (a learning-based 
+                kernel (DC) [Back et al. 2020]) by taking two different images (path tracing with independent 
+                sampling and correlated sampling using common random numbers (CRN)) as inputs. 
+                We have compared our method with a recent biased denoiser, auxiliary feature 
+                guided self-attention (AFGSA) [Yu et al. 2021]. Since the denoiser takes only independent 
+                pixel estimates as input, we set the total sample budgets for both methods to be the same.
+                We additionally demonstrate that our method can be used to improve the unbiased result of 
+                gradient-domain rendering [Kettunen et al. 2015] (i.e., L2 reconstruction). To quantitatively 
+                compare the quality of results, we measure the relative L2 error [Rousselle et al. 2011] with 
+                a small value 1e-2.
+			</p>
+            <h2>
+                Comparisons with input-independent kernels
+            </h2>
+            <div class="element-container">
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/bathroom/index.html">
+                        <img class="report-thumb-2" src="compare_indep_kernel/bathroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Bathroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/classroom/index.html">
+                        <img class="report-thumb-2" src="compare_indep_kernel/classroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Classroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/coffee/index.html">
+                        <img class="report-thumb-coffee" src="compare_indep_kernel/coffee/thumb.png"/>
+                    </a>
+                    <br/>
+                    Coffee-maker
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/house/index.html">
+                        <img class="report-thumb-2" src="compare_indep_kernel/house/thumb.png"/>
+                    </a>
+                    <br/>
+                    House
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/kitchen/index.html">
+                        <img class="report-thumb-2" src="compare_indep_kernel/kitchen/thumb.png"/>
+                    </a>
+                    <br/>
+                    Kitchen
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/lamp/index.html">
+                        <img class="report-thumb-1" src="compare_indep_kernel/lamp/thumb.png"/>
+                    </a>
+                    <br/>
+                    Lamp
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/material-testball/index.html">
+                        <img class="report-thumb-2" src="compare_indep_kernel/material-testball/thumb.png"/>
+                    </a>
+                    <br/>
+                    Material-testball
+                </div>
+                <div class="report-preview">
+                    <a href="compare_indep_kernel/staircase/index.html">
+                        <img class="report-thumb-staircase" src="compare_indep_kernel/staircase/thumb.png"/>
+                    </a>
+                    <br/>
+                    Staircase
+                </div>
+            </div>
+			<h2>
+                Comparisons with an input-dependent kernel
+            </h2>
+            <div class="element-container">
+                <div class="report-preview">
+                    <a href="compare_dep_kernel/bathroom/index.html">
+                        <img class="report-thumb-2" src="compare_dep_kernel/bathroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Bathroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_dep_kernel/classroom/index.html">
+                        <img class="report-thumb-2" src="compare_dep_kernel/classroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Classroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_dep_kernel/house/index.html">
+                        <img class="report-thumb-2" src="compare_dep_kernel/house/thumb.png"/>
+                    </a>
+                    <br/>
+                    House
+                </div>
+                <div class="report-preview">
+                    <a href="compare_dep_kernel/lamp/index.html">
+                        <img class="report-thumb-1" src="compare_dep_kernel/lamp/thumb.png"/>
+                    </a>
+                    <br/>
+                    Lamp
+                </div>
+                <div class="report-preview">
+                    <a href="compare_dep_kernel/staircase/index.html">
+                        <img class="report-thumb-staircase" src="compare_dep_kernel/staircase/thumb.png"/>
+                    </a>
+                    <br/>
+                    Staircase
+                </div>
+            </div>
+            <h2>
+                Comparisons with a recent biased denoiser
+            </h2>
+            <div class="element-container">
+                <div class="report-preview">
+                    <a href="compare_biased_denoiser/bathroom/index.html">
+                        <img class="report-thumb-2" src="compare_biased_denoiser/bathroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Bathroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_biased_denoiser/classroom/index.html">
+                        <img class="report-thumb-2" src="compare_biased_denoiser/classroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Classroom
+                </div>
+                <div class="report-preview">
+                    <a href="compare_biased_denoiser/house/index.html">
+                        <img class="report-thumb-2" src="compare_biased_denoiser/house/thumb.png"/>
+                    </a>
+                    <br/>
+                    House
+                </div>
+                <div class="report-preview">
+                    <a href="compare_biased_denoiser/lamp/index.html">
+                        <img class="report-thumb-1" src="compare_biased_denoiser/lamp/thumb.png"/>
+                    </a>
+                    <br/>
+                    Lamp
+                </div>
+                <div class="report-preview">
+                    <a href="compare_biased_denoiser/staircase/index.html">
+                        <img class="report-thumb-staircase" src="compare_biased_denoiser/staircase/thumb.png"/>
+                    </a>
+                    <br/>
+                    Staircase
+                </div>
+            </div>
+            <h2>
+                Results for gradient-domain rendering
+            </h2>
+            <div class="element-container">
+                <div class="report-preview">
+                    <a href="result_gdr/bathroom/index.html">
+                        <img class="report-thumb-2" src="result_gdr/bathroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Bathroom
+                </div>
+                <div class="report-preview">
+                    <a href="result_gdr/classroom/index.html">
+                        <img class="report-thumb-2" src="result_gdr/classroom/thumb.png"/>
+                    </a>
+                    <br/>
+                    Classroom
+                </div>
+                <div class="report-preview">
+                    <a href="result_gdr/house/index.html">
+                        <img class="report-thumb-2" src="result_gdr/house/thumb.png"/>
+                    </a>
+                    <br/>
+                    House
+                </div>
+                <div class="report-preview">
+                    <a href="result_gdr/lamp/index.html">
+                        <img class="report-thumb-1" src="result_gdr/lamp/thumb.png"/>
+                    </a>
+                    <br/>
+                    Lamp
+                </div>
+                <div class="report-preview">
+                    <a href="result_gdr/staircase/index.html">
+                        <img class="report-thumb-staircase" src="result_gdr/staircase/thumb.png"/>
+                    </a>
+                    <br/>
+                    Staircase
+                </div>
+            </div>
+            <h2>
+                References
+            </h2>
+            <p>
+			    [Back et al. 2020] Jonghee Back, Binh-Son Hua, Toshiya Hachisuka, and Bochang Moon. 2020. Deep Combiner for Independent and Correlated Pixel Estimates. ACM Trans. Graph. 39, 6, Article 242 (Nov. 2020), 12 pages.
+			</p>
+            <p>
+                [Kettunen et al. 2015] Markus Kettunen, Marco Manzi, Miika Aittala, Jaakko Lehtinen, Frédo Durand, and Matthias Zwicker. 2015. Gradient-Domain Path Tracing. ACM Trans. Graph. 34, 4, Article 123 (July 2015), 13 pages.
+            </p>
+            <p>
+			    [Rousselle et al. 2011] Fabrice Rousselle, Claude Knaus, and Matthias Zwicker. 2011. Adaptive Sampling and Reconstruction Using Greedy Error Minimization. ACM Trans. Graph. 30, 6, Article 159 (Dec. 2011), 12 pages.
+			</p>
+            <p>
+			    [Yu et al. 2021] Jiaqi Yu, Yongwei Nie, Chengjiang Long, Wenju Xu, Qing Zhang, and Guiqing Li. 2021. Monte Carlo Denoising via Auxiliary Feature Guided Self-Attention. ACM Trans. Graph. 40, 6, Article 273 (Dec. 2021), 13 pages.
+			</p>
+            <h2>
+                Acknowledgements
+            </h2>
+			<p>
+			    We would like to thank nacimus (Bathroom), NovaZeeke (Classroom), cekuhnen (Coffee-maker), MrChimp2313 (House), 
+                Jay-Artist (Kitchen), UP3D (Lamp), Benedikt Bitterli (Material-testball) and Wig42 (Staircase) for providing 
+                the following test scenes. Additionally, we would like to express our appreciation to Joey Litalien, Jan Novák, 
+                and Benedikt Bitterli for the interactive viewer.
+			</p>
+        </div>
+    </body>
+</html>
